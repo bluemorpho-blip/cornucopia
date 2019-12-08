@@ -1,0 +1,11 @@
+<%= @cornucopia.name %></br>
+
+<h2>Items</h2>
+<ul>
+  <% @cornucopia.items.each do |item| %>
+    <li><a href="/items/<%= item.id>"><%= item.name %></a></li>
+  <% end %>
+</ul>
+<a href="/cornucopias/%= @cornucopias.id %>/edit">Edit</a>
+</br>
+</br>
