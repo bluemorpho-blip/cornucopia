@@ -1,0 +1,6 @@
+<p> Here are your Cornucopias, <%= @user.username %>
+  <% @user.cornucopias.each do |corn| %>
+    <ul>
+      <li>A href="/cornucopias/<%= corn.id %>"><%= corn.name %></a></li>
+    </ul>
+  <% end %>

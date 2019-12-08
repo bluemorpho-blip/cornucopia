@@ -1,0 +1,16 @@
+<h1>Edit <%= @item.name %></h1>
+
+<form action="/items/<%= @item.id %>" method="POST">
+  <label> Item Name </label>
+  <input type="text" name="name" value="<%= @item.name %>"></br>
+
+  <label> Which Cornucopia does this belong in? </label>
+  <select name="cornucopia_id">
+    <% current_user.cornucopias.each do |cornucopia| %>
+      <option value=<%=cornucopia.id %> <%= "selected"
+        if cornucopia.id == @item.cornucopia.id %> ><%= cornucopia.name %></option>
+    <% end %>
+  </select>
+
+  <input type="submit" value="Update">
+</form>
