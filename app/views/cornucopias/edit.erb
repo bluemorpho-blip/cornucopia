@@ -1,0 +1,7 @@
+<h1>Edit <%= @cornucopia.name %></h1>
+
+<form action="/cornucopias/<%= @cornucopia.id %>" method="POST">
+  <label>Cornucopia Name</label>
+  <input type="text" name="name" value="<%= cornucopia.name %>"> </br>
+  <input type="submit" value="Update">
+</form>
