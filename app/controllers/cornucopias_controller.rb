@@ -15,7 +15,7 @@ class CornucopiasController < ApplicationController
   get "/cornucopias/:id/edit" do
     redirect_if_not_logged_in
     @error_message = params[:error]
-    @cornucopia = Cornucopia.find9params[:id])
+    @cornucopia = Cornucopia.find(params[:id])
     erb :'cornucopias/edit'
   end
 
@@ -25,7 +25,7 @@ class CornucopiasController < ApplicationController
     unless Cornucopia.valid_params?(params)
       redirect "/cornucopias/#{@cornucopia.id}/edit?error=invlaid cornucopia"
     end
-    @cornucopia.update(params.select|key| key == "name"} )
+    @cornucopia.update(params.select{ |key| key == "name"} )
     redirect "/cornucopias/#{cornucopia.id}"
   end
 
