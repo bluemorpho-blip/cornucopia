@@ -13,14 +13,17 @@
 
   /* --- Welcome Page Styles --- */
   body {
+    background-image: url('/images/cornucopia_background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
     background-color: cornsilk;
-    color: #333;
+    color: white;
     font-family: Sans-Serif;
     line-height: 18px;
   }
 
   .wrapper {
-    background: DarkGoldenrod;
+    background: transparent;
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -28,6 +31,12 @@
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
+  }
+
+  a {
+    font-weight: bold;
+    font-size: 16px;
+    color: red;
   }
 
   h1 {
@@ -61,7 +70,7 @@
   }
 
   .sidebar {
-    background: wheat;
+    background: transparent;
     border: 1px solid #ccc;
     float: right;
     padding: 2.08333333333%; /* 5px / 240px */
