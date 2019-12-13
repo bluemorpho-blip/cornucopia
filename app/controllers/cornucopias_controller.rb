@@ -44,4 +44,17 @@ class CornucopiasController < ApplicationController
     Cornucopia.create(params)
     redirect "/cornucopias"
   end
+
+  delete "/cornucopias/:id/delete" do
+    if logged_in?
+      @cornucopia = Cornucopia.find_by_id(params[:id])
+      if @cornucopia && @cornucopia.user == current_user
+        @cornucopia.delete
+      end
+      redirect to '/coruncopias'
+    else
+      redirect to '/login'
+    end
+  end
+
 end
