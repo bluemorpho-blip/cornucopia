@@ -33,7 +33,7 @@ end
 
   get "/login" do
     @error_message = params[:error]
-    if !session[:user_id]
+    if !logged_in?
       erb :'users/login'
     else
       redirect '/cornucopias'
@@ -51,7 +51,7 @@ end
   end
 
   get "/logout" do
-    if session[:user_id] != nil
+    if logged_in?
       session.destroy
       redirect '/'
     else

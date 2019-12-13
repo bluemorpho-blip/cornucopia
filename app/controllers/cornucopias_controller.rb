@@ -13,21 +13,38 @@ class CornucopiasController < ApplicationController
   end
 
   get "/cornucopias/:id/edit" do
-    redirect_if_not_logged_in
-    @error_message = params[:error]
-    @cornucopia = Cornucopia.find(params[:id])
-    erb :'cornucopias/edit'
+    if logged_in?
+      @cornucopia = Cornucopia.find_by_id(params[:id])
+      if @cornucopia && @cornucopia.user == current_user
+        erb :'cornucopias/edit'
+      else
+        redirect '/coruncopias'
+      end
+    else
+      redirect "/login"
+    end
   end
 
   post "/cornucopias/:id" do
-    redirect_if_not_logged_in
-    @cornucopia = Cornucopia.find(params[:id])
-    unless Cornucopia.valid_params?(params)
-      redirect "/cornucopias/#{@cornucopia.id}/edit?error=invlaid cornucopia"
+    if logged_in?
+      if params[:name] == ""
+        redirect to "/cornucopias/#{params[:id]}/edit"
+      else
+        @cornucopia = Cornucopia.find_by_id(params[:id])
+        if @cornucopia && @cornucopia.user == current_user
+          if @cornucopia.update(item: params[:item])
+            redirect to "/cornucopias/#{@cornucopia.id}"
+          else
+            redirect to "/cornucopias/#{@cornucopia.id}/edit"
+          end
+        else
+        redirect to "/cornucopias"
+      end
     end
-    @cornucopia.update(params.select{ |key| key == "name"} )
-    redirect "/cornucopias/#{@cornucopia.id}"
+  else
+    redirect to "/"
   end
+end
 
   get "/cornucopias/:id" do
     redirect_if_not_logged_in
