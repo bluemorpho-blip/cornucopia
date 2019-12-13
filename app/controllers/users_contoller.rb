@@ -27,7 +27,7 @@ end
     else
       @user = User.create(:username => params[:username], :password => params[:password])
       session[:user_id] = @user.id
-      redirect '/cornucopias'
+      redirect '/cornucopias/new'
     end
   end
 
