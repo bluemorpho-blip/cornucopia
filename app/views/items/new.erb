@@ -7,7 +7,7 @@
   <label> Which Cornucopia does this belong in? </label>
   <select name="cornucopia_id">
     <% current_user.cornucopias.each do |cornucopia| %>
-      <option value=<%= cornucopia.id %>><%= cornucopia.name %></option>
+      <option value="<%= cornucopia.id %>"><%= cornucopia.name %></option>
       <% end %>
     </select>
 

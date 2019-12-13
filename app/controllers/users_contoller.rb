@@ -53,7 +53,7 @@ end
   get '/logout' do
     if session[:user_id] != nil
       session.destroy
-      redirect '/login'
+      redirect '/'
     else
       redirect '/'
     end

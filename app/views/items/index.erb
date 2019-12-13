@@ -1,6 +1,7 @@
-<% @items.each do |item|
+<% @items.each do |item| %>
   <%= item.name %></br>
-  <a gref="/items/<%= item.id %>/edit">Edit</a>
+  <a href="/items/<%= item.id %>/edit">Edit</a>
 </br>
 </br>
 <% end %>
+<a href="/items/new">stuff something new into the cornucopia!</a>

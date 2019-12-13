@@ -26,7 +26,7 @@ class CornucopiasController < ApplicationController
       redirect "/cornucopias/#{@cornucopia.id}/edit?error=invlaid cornucopia"
     end
     @cornucopia.update(params.select{ |key| key == "name"} )
-    redirect "/cornucopias/#{cornucopia.id}"
+    redirect "/cornucopias/#{@cornucopia.id}"
   end
 
   get "/cornucopias/:id" do
@@ -38,7 +38,7 @@ class CornucopiasController < ApplicationController
   post "/cornucopias" do
     redirect_if_not_logged_in
 
-    unless Cornucopia.valid_params?(parmas)
+    unless Cornucopia.valid_params?(params)
       redirect "/cornucopias/new?error=invalid cornucopia"
     end
     Cornucopia.create(params)

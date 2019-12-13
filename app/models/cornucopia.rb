@@ -3,6 +3,6 @@ class Cornucopia < ActiveRecord::Base
   belongs_to :user
 
   def self.valid_params?(params)
-    reutrn !params[name].empty?
+    return !params[:name].empty?
   end
 end

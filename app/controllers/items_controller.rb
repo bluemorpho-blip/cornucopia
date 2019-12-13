@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
     redirect_if_not_logged_in
     @error_message = params[:error]
     @item = Item.find(params[:id])
-    erb :'itmes/edit'
+    erb :'items/edit'
   end
 
   post "/items/:id" do
@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
     unless Item.valid_params?(params)
       redirect "/items/#{@item.id}/edit?error=invalid item"
     end
-    @item.update(params.select{ |key| key == "name" || key == "cornucopia_id"} )
+    @item.update(params.select{ |key| key == "name" || key == "cornucopias_id"} )
     redirect "/items/#{@item.id}"
   end
 
