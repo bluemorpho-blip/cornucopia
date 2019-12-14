@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
 
   get "/users/:id" do
-    if !logged_in?
-      redirect '/cornucopias'
-  end
-
   @user = User.find(params[:id])
   if !@user.nil && @user == current_user
     erb :'/users/show'
@@ -13,26 +9,26 @@ class UsersController < ApplicationController
   end
 end
 
-  get "/signup" do
-    if !session[:user_id]
-      erb :'/users/new'
+  get '/signup' do
+    if logged_in?
+      erb :'/users/new', locals: {message: "Please sign up before you sign in"}
     else
-      redirect '/items'
+      redirect to '/cornucopias'
     end
   end
 
-  post "/signup" do
+  post '/signup' do
     if params[:username] == "" || params[:password] == ""
-      redirect '/signup'
+      redirect to '/signup'
     else
-      @user = User.create(:username => params[:username], :password => params[:password])
+      @user = User.new(:username => params[:username], :password => params[:password])
+      @user.save
       session[:user_id] = @user.id
-      redirect '/cornucopias/new'
+      redirect '/cornucopias'
     end
   end
 
-  get "/login" do
-    @error_message = params[:error]
+  get '/login' do
     if !logged_in?
       erb :'users/login'
     else
@@ -50,10 +46,10 @@ end
     end
   end
 
-  get "/logout" do
+  get '/logout' do
     if logged_in?
       session.destroy
-      redirect '/'
+      redirect '/login'
     else
       redirect '/'
     end
