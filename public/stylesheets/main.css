@@ -81,6 +81,12 @@
     font-size: 14px;
   }
 
+  .navi {
+    border-top: 2px solid #ccc;
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+
   .branding {
     clear: both;
   }
@@ -90,6 +96,7 @@
     margin-top: 20px;
     padding-top: 20px;
   }
+
 }
 
 @media screen and (max-width: 600px) {
