@@ -1,34 +1,27 @@
 class ItemsController < ApplicationController
 
   get "/items" do
-    if logged_in?
+    redirect_if_not_logged_in
       @items = Item.all
       erb :'items/index'
-    else
-      redirect '/cornucopias'
-    end
   end
 
   get "/items/new" do
-    if logged_in?
-      erb :'items/new'
-    else
-      redirect '/cornucopias'
-    end
+    redirect_if_not_logged_in
+    @error_message = params[:error]
+    erb :'items/new'
   end
 
   get "/items/:id/edit" do
-    if logged_in?
-      @item = Item.find(params[:id])
-      erb :'items/edit'
-    else
-      redirect '/cornucopias'
-    end
+    redirect_if_not_logged_in
+    @error_message = params[:error]
+    @item = Item.find(params[:id])
+    erb :'items/edit'
   end
 
   post "/items/:id" do
-    if logged_in?
-      @item = Item.find(params[:id])
+    redirect_if_not_logged_in
+    @item = Item.find_by_id(params[:id])
     unless Item.valid_params?(params)
       redirect to "/items/#{@item.id}/edit?error=invalid item"
     end
@@ -37,15 +30,14 @@ class ItemsController < ApplicationController
   end
 
   get "/items/:id" do
-    if logged_in?
-      @item = Item.find(params[:id])
-      redirect to '/items/show'
-    end
+    redirect_if_not_logged_in
+    @item = Item.find_by_id(params[:id])
+    erb :'/items/show'
   end
 
   post "/items" do
-    if logged_in?
-      unless Item.valid_params?(params)
+    redirect_if_not_logged_in
+    unless Item.valid_params?(params)
         redirect "/itmes/new?error=invalid item"
     end
     Item.create(params)
@@ -53,11 +45,10 @@ class ItemsController < ApplicationController
   end
 
   delete "/items/:id/delete" do
-    if logged_in?
-      @item = Item.find_by_id(params[:id])
-      if @item && @item.user == current_user
-        @item.delete
-      end
+    redirect_if_not_logged_in
+    @item = Item.find_by_id(params[:id])
+    if @item && @item.user == current_user
+      @item.delete
       redirect to '/items'
     else
       redirect to '/login'
