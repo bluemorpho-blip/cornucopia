@@ -9,7 +9,7 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "adrenalinerush"
   end
 
-  get "/" do
+  get '/' do
     erb :welcome
   end
 
