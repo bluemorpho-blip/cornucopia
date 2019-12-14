@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   end
 
   get '/logout' do
-    if lsession[:user_id] != nil
+    if !session[:user_id] != nil
       session.destroy
       redirect '/login'
     else
