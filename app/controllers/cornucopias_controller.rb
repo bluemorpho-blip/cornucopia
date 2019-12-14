@@ -17,8 +17,7 @@ class CornucopiasController < ApplicationController
     end
   end
 
-
-    post "/cornucopias" do
+  post "/cornucopias" do
     if logged_in?
       if params[:name] == ""
         redirect to "/cornucpoias/new"
@@ -34,6 +33,15 @@ class CornucopiasController < ApplicationController
     end
   end
 
+  get "/cornucopias/:id" do
+    if logged_in?
+      @cornucopia = Cornucopia.fing_by_id(params[:id])
+      erb :'cornucopias/show'
+    else
+      redirect to '/login'
+    end
+  end
+
   get "/cornucopias/:id/edit" do
     if logged_in?
       @cornucopia = Cornucopia.find_by_id(params[:id])
@@ -43,7 +51,7 @@ class CornucopiasController < ApplicationController
         redirect '/coruncopias'
       end
     else
-      redirect "/login"
+      redirect '/login'
     end
   end
 
@@ -54,27 +62,21 @@ class CornucopiasController < ApplicationController
       else
         @cornucopia = Cornucopia.find_by_id(params[:id])
         if @cornucopia && @cornucopia.user == current_user
-          if @cornucopia.update(item: params[:item])
+          if @cornucopia.update(item: params[:name])
             redirect to "/cornucopias/#{@cornucopia.id}"
           else
             redirect to "/cornucopias/#{@cornucopia.id}/edit"
           end
         else
-        redirect to "/cornucopias"
+          redirect to '/cornucopias'
+        end
       end
+    else
+      redirect to '/login'
     end
-  else
-    redirect to "/"
-  end
-end
-
-  get "/cornucopias/:id" do
-    redirect_if_not_logged_in
-    @cornucopia = Cornucopia.find(params[:id])
-    erb :'cornucopias/show'
   end
 
-  delete "/cornucopias/:id/delete" do
+  delete '/cornucopias/:id/delete' do
     if logged_in?
       @cornucopia = Cornucopia.find_by_id(params[:id])
       if @cornucopia && @cornucopia.user == current_user
