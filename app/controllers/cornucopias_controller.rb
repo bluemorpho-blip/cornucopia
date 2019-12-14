@@ -1,79 +1,48 @@
 class CornucopiasController < ApplicationController
 
   get "/cornucopias" do
-    if logged_in?
+    redirect_if_not_logged_in
       @cornucopias = Cornucopia.all
       erb :'cornucopias/index'
-    else
-      redirect to '/login'
-    end
   end
 
   get "/cornucopias/new" do
-    if logged_in?
+    redirect_if_not_logged_in
+    @error_message = params[:error]
       erb :'cornucopias/new'
-    else
-      redirect to '/login'
-    end
   end
 
   post "/cornucopias" do
-    if logged_in?
-      if params[:name] == ""
-        redirect to "/cornucpoias/new"
-      else
-        @cornucopia = current_user.cornucopias.build(name: params[:name])
-        if @cornucopia.save
-          redirect to "/cornucopias/#{@cornucopia.id}"
-        else
-          redirect to "/cornucopias/new"
-        end
-      end
-      redirect to '/login'
+    redirect_if_not_logged_in
+
+    unless Cornucopia.valid_params?(params)
+      redirect "/cornucopias/new?error=invalid cornucopia"
     end
+    Cornucopia.create(params)
+    redirect to '/cornucopias'
   end
 
   get "/cornucopias/:id" do
-    if logged_in?
-      @cornucopia = Cornucopia.fing_by_id(params[:id])
-      erb :'cornucopias/show'
-    else
-      redirect to '/login'
-    end
+    redirect_if_not_logged_in
+    @cornucopia = Cornucopia.fing_by_id(params[:id])
+    erb :'cornucopias/show'
   end
 
   get "/cornucopias/:id/edit" do
-    if logged_in?
-      @cornucopia = Cornucopia.find_by_id(params[:id])
-      if @cornucopia && @cornucopia.user == current_user
-        erb :'cornucopias/edit'
-      else
-        redirect '/coruncopias'
-      end
-    else
-      redirect '/login'
-    end
+    redirect_if_not_logged_in
+    @error_message = params[:error]
+    @cornucopia = Cornucopia.find_by_id(params[:id])
+    erb :'cornucopias/edit'
   end
 
   post "/cornucopias/:id" do
-    if logged_in?
-      if params[:name] == ""
-        redirect to "/cornucopias/#{params[:id]}/edit"
-      else
-        @cornucopia = Cornucopia.find_by_id(params[:id])
-        if @cornucopia && @cornucopia.user == current_user
-          if @cornucopia.update(item: params[:name])
-            redirect to "/cornucopias/#{@cornucopia.id}"
-          else
-            redirect to "/cornucopias/#{@cornucopia.id}/edit"
-          end
-        else
-          redirect to '/cornucopias'
-        end
-      end
-    else
-      redirect to '/login'
+    redirect_if_not_logged_in
+    @cornucopia = Cornucopia.find_by_id(params[:id])
+    unless Cornucopia.valid_params?(params)
+      redirect to "/cornucopias/#{@cornucopia.id}/edit?error=invalid cornucopia"
     end
+    @cornucopia.update(params.select{ |key| key=="name"} )
+    redirect to "/cornucopias/#{@cornucpia.id}"
   end
 
   delete '/cornucopias/:id/delete' do
