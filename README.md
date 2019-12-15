@@ -27,8 +27,8 @@ To use this app, just clone, run `rake db:migrate` and then run `shotgun`.
 #### 12/08/2019
   rebuilt framework using corneal gem.  Too many issues with db.
 #### 12/09/2019
-  finished coding the project.  now it's testing, fixing typos,  
-  and working on the css to make it look pretty.
+  finished coding the project.  now it's testing, fixing typos, and working on the css to make it  
+  look pretty.
 #### 12/12/2019
   after a couple busy days, progress was made this evening.  Background image was added,  
   pilgrim image added to layout and debugged.  Some navigation in the CRUD MVC was  
