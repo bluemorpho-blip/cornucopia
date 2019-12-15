@@ -35,7 +35,6 @@ To use this app, just clone, run `rake db:migrate` and then run `shotgun`.
   established.
 #### 12/14/2019
   worked on css today.  Started work on a nave bar via the layout page and styling through css.  
-  Cleaned up links in the flow of the pages and debugged lots of messes.  
-  Links still need debugging and verification.  
-  Session control and user actions need to still be verified - I need to  
-  make sure that only the allowed user can manipulate there data.
+  Cleaned up links in the flow of the pages and debugged lots of messes. Links still need  
+  debugging and verification. Session control and user actions need to still be verified - I  
+  need to make sure that only the allowed user can manipulate there data.
