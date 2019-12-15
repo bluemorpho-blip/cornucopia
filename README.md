@@ -6,24 +6,19 @@ To use this app, just clone, run `rake db:migrate` and then run `shotgun`.
 
 ### Progress
 #### 11/30/2019
-  set up project on github and cloned repo down to Learn ide to get started.  
-  spec.md loaded as per instructions.
+  set up project on github and cloned repo down to Learn ide to get started.  spec.md loaded as per  
+  instructions.
 #### 12/01/2019
-  files today: app/controllers  config.ru  Rakefile   Gemfile
-  established framework for controllers.  
+  files today: app/controllers  config.ru  Rakefile   Gemfile established framework for controllers.  
   Reviewed MVC ideas and got the idea of MVC relations concerning  multiple models/controllers/views  
   figured out, I think.
 #### 12/02/2019
-  files today: application_controller completed(maybe).  
-  models built.  Views spaceholders laid out.  /index stubbed.  
-  layout.erb written.  
-  No testing today - I still need to build tables and database.
+  files today: application_controller completed(maybe). Models built. Views spaceholders laid out.  
+  /index stubbed. layout.erb written. No testing today - I still need to build tables and database.
 #### 12/05/2019  
-  today's issue was migrating the tables.  I couldn't get rake  
-  db:migrate to work today.  I added a database.yml file to the
-  config file and chased down some typos.  
-  Finally, the migration worked!  I went through every file  
-  today and rebuilt several files.
+  today's issue was migrating the tables.  I couldn't get rake db:migrate to work today.  I added a  
+  database.yml file to the config file and chased down some typos. Finally, the migration worked!  
+  I went through every file today and rebuilt several files.
 #### 12/08/2019
   rebuilt framework using corneal gem.  Too many issues with db.
 #### 12/09/2019
