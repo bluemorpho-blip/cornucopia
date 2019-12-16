@@ -31,7 +31,7 @@ class CornucopiasController < ApplicationController
 
   get "/cornucopias/:id" do
     redirect_if_not_logged_in
-    @cornucopia = Cornucopia.find_by_id(params[:id])
+    @cornucopia = Cornucopia.find(params[:id])
     erb :'cornucopias/show'
   end
 

@@ -6,6 +6,20 @@
     <li><a href="/items/<%= item.id %>"><%= item.name %></a></li>
   <% end %>
 </ul>
-<a href="/cornucopias/<%= @cornucopia.id %>/edit">Edit</a>
+
+<div class="add items">
+  <a href="/items/new">add a new item</a>
+</div>
+<br>
+
+<div class="delete">
+  <form method="POST" action="/cornucopias/<%= @cornucopia.id %>">
+    <input type="hidden" name="_method" value="delete" />
+    <input type="submit" value="delete" />
+  </form>
+</div>
+<br>
+
+<a href="/cornucopias/<%= @cornucopia.id %>/edit">Edit Name</a>
 </br>
 </br>
