@@ -1,8 +1,18 @@
-<h2>Edit <%= @cornucopia.name %></h2>
+<h3>Edit "<%= @cornucopia.name %>" cornucopia</h3>
 
-<form action="/cornucopias/<%= @cornucopia.id %>" method="POST">
-  <input id="hidden" type="hidden" name="_method" value="PATCH">
-  <label>Cornucopia Name</label>
-  <input type="text" name="name" value="<%= @cornucopia.name %>"> </br>
-  <input type="submit" value="Update">
+<form action="/cornucopias/<%=@cornucopia.id %>" method="POST">
+  <Label> Cornucopia Name: </label>
+  <input type="text" name="name" value="<%=@cornucopia.name %>">
+
+  <br />
+
+  <input class="btn btn-primary" type="submit" value="Update">
+
+</form>
+
+<br />
+
+<form method="POST" action="/cornucopias/<%=@cornucopia.id %>">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input class="btn btn-primary" type="submit" Value="Delete">
 </form>
