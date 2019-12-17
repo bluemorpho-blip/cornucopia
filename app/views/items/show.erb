@@ -1,5 +1,3 @@
-<%= @item.name %></br>
-Cornucopia: <a href="/cornucopias/<%= @item.cornucopia.id %>"><%= @item.cornucopia.name %></a></br>
-<a href="/items/<%= @item.id %>/edit">Edit</a>
-</br>
-</br>
+<h3><%= @item.name %></h3>
+<h4>*This belongs to the <u><ahref="/cornucopias/<%=@item.cornucopia.id%>"><%= @item.cornucopia.name %></a></u> cornucopia</h4>
+<a href="?items/<%=@item.id%>/edit">Edit Item</a>
