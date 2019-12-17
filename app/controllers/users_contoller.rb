@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     if !logged_in?
     redirect '/cornucopias'
     end
+
     @user = User.find(params[:id])
     if @user == current_user && !@user.nil?
       erb :'users/show'
