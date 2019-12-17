@@ -1,35 +1,39 @@
 class ItemsController < ApplicationController
 
-  get "/items" do
+  get '/items' do
     redirect_if_not_logged_in
-      @items = Item.all
-      erb :'items/index'
+      @items = Item.find_by_id(params[:id])
+      erb :'users/show'
   end
 
-  get "/items/new" do
+  get '/items/new' do
     redirect_if_not_logged_in
     @error_message = params[:error]
+    @items = Item.all
     erb :'items/new'
   end
 
+  # edit items
   get "/items/:id/edit" do
     redirect_if_not_logged_in
     @error_message = params[:error]
     @item = Item.find(params[:id])
+    @cornucopias = Cornucopia.all
     erb :'items/edit'
   end
 
   post "/items/:id" do
     redirect_if_not_logged_in
-    @item = Item.find_by_id(params[:id])
+    @item = Item.find(params[:id])
     unless Item.valid_params?(params)
-      redirect to "/items/#{@item.id}/edit?error=invalid item"
+      redirect "/items/#{@item.id}/edit?error=invalid item"
     end
-    @item.update(params.select{ |key| key == "name" || key == "cornucopias_id"} )
+    @item.update(params.select{ |k| k == "name"} )
     redirect "/items/#{@item.id}"
   end
 
-  get "/items/:id" do
+  # show items
+  get '/items/:id' do
     redirect_if_not_logged_in
     @item = Item.find_by_id(params[:id])
     erb :'/items/show'
@@ -38,21 +42,22 @@ class ItemsController < ApplicationController
   post "/items" do
     redirect_if_not_logged_in
     unless Item.valid_params?(params)
-        redirect "/itmes/new?error=invalid item"
+        redirect "/items/new?error=invalid item"
     end
     Item.create(params)
     redirect "/items"
   end
 
-  delete "/items/:id/delete" do
-    redirect_if_not_logged_in
+  # delete items
+  get '/items/:id' do
     @item = Item.find_by_id(params[:id])
-    if @item && @item.user == current_user
-      @item.delete
-      redirect to '/items'
-    else
-      redirect to '/login'
-    end
+    erb :'/items/edit'
+  end
+
+  delete '/items/:id' do
+    @item = Item.find_by_id(params[:id])
+    @item.destroy
+    redirect to '/items'
   end
 
 end
