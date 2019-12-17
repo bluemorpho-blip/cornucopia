@@ -1,3 +1,6 @@
+<h2>Hello, <%= current_user.username %>!</h2>
+<br />
+
 <div class="navi">
   <ul>
     <li><a href="/cornucopias/new">Create a New Cornucopia</a></li>
@@ -6,11 +9,14 @@
 <br>
 <br>
 
+<h3>Here are all the cornucopias:</h3>
+
 <% @cornucopias.each do |cornucopia| %>
-  <%= cornucopia.name %></br>
-  <a href="/cornucopias/<%= cornucopia.id %>/edit">Edit Name</a>
-  <br>
-  <a href="/items/new">Add Item</a>
-  <br>
-  <br>
+  <ul>
+    <li><h4><a href="/cornucopias/<%=cornucopia.id%>"><%= cornucopia.name %></a></h4></li>
+    <a href="/cornucopias/<%=cornucopia.id%>/edit">Edit Cornucopia</a> |&nbsp;<a href="/items/new">Add Item</a>
+
+    <br><br>
+
+  </ul>
   <% end %>
