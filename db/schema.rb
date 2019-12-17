@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20191217203516) do
 
-  create_table "cornucopias", force: :cascade do |t|
+  create_table "cornucopia", force: :cascade do |t|
     t.string  "name"
     t.integer "user_id"
   end
