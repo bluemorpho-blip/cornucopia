@@ -2,6 +2,7 @@ class CornucopiasController < ApplicationController
 
   get "/cornucopias" do
     redirect_if_not_logged_in
+      @name = params[:name]
       @cornucopias = Cornucopia.all
       erb :'cornucopias/index'
   end
@@ -41,7 +42,7 @@ class CornucopiasController < ApplicationController
     unless Cornucopia.valid_params?(params)
       redirect "/cornucopias/new?error=invalid cornucopia"
     end
-    Cornucopia.create(params)
+    Cornucopia.create(:name => params[:name])
     redirect to '/cornucopias'
   end
 

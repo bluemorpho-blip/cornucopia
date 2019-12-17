@@ -1,4 +1,4 @@
-<h1>Stuff Something Else In Your Cornucopia</h1>
+<h1>Stuff Something In Your Cornucopia</h1>
 
 <form action="/items" method="POST">
   <label> Item Name </label>
@@ -7,7 +7,7 @@
   <label> Which Cornucopia does this belong in? </label>
   <select name="cornucopia_id">
     <% current_user.cornucopias.each do |cornucopia| %>
-      <option value= <%= cornucopia.id %>><%= cornucopia.name %></option>
+      <option value=<%=cornucopia.id %>><%= cornucopia.name %></option>
       <% end %>
     </select>
 

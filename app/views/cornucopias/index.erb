@@ -3,10 +3,14 @@
     <li><a href="/cornucopias/new">Create a New Cornucopia</a></li>
   </ul>
 </div>
+<br>
+<br>
 
 <% @cornucopias.each do |cornucopia| %>
   <%= cornucopia.name %></br>
-  <a href="/cornucopias/<%= cornucopia.id %>/edit">Edit</a>
+  <a href="/cornucopias/<%= cornucopia.id %>/edit">Edit Name</a>
+  <br>
+  <a href="/items/new">Add Item</a>
   <br>
   <br>
   <% end %>

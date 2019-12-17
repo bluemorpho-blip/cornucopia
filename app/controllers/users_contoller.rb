@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     redirect '/cornucopias'
     end
     @user = User.find(params[:id])
-    if !@user.nil? && @user == current_user
+    if @user == current_user && !@user.nil?
       erb :'users/show'
     else
       redirect '/cornucopias'
@@ -14,9 +14,9 @@ class UsersController < ApplicationController
 
   get '/signup' do
     if !session[:user_id]
-      erb :'/users/new', locals: {message: "Please sign up before you sign in"}
+      erb :'/users/new'
     else
-      redirect to '/items'
+      redirect '/items'
     end
   end
 
@@ -49,9 +49,10 @@ class UsersController < ApplicationController
     end
   end
 
+
   get '/logout' do
-    if !session[:user_id] != nil
-      session.destroy
+    if session[:user_id] != nil
+      session.clear
       redirect '/login'
     else
       redirect '/'
