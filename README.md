@@ -33,3 +33,7 @@ To use this app, just clone, run `rake db:migrate` and then run `shotgun`.
   Cleaned up links in the flow of the pages and debugged lots of messes. Links still need  
   debugging and verification. Session control and user actions need to still be verified - I  
   need to make sure that only the allowed user can manipulate there data.
+#### 12/17/2019
+  refactored entire site today.  Too many issues, too many bugs, too many everything.  More css work  
+  added solid background in some needed places.  Made the crud links on the welcome page - initially  
+  there for reference - working links.

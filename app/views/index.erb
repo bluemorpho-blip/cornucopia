@@ -1,0 +1,45 @@
+<div class="content">
+  <p>Welcome to the Cornucopia Sinatra Project! Stuff anything you like in a cornucopia. To get started, <a href="/signup">sign up</a> or <a href="/login">log in</a> and begin
+     stuffing whatever you like into your very own <em>personalized</em> cornucopia. For more information on this Sinatra Project, see the <a href="https://github.com/rstephens5911/cornucopia" target="_blank">README</a>.</p>
+  <div class="crud">
+    <h3>Cornucopias Controller</h3>
+
+    <ul>
+      <li><a href="/cornucopias">cornucopias</a>&nbsp show all cornucopias</li>
+      <li><a href="/cornucopias/new">cornucopias/new</a>&nbsp create new cornucopia</li>
+      <li><a href="/cornucopias/<%=@user%>/edit">cornucopias/:id/edit</a>&nbsp update</li>
+      <li><a href="/cornucopias/<%=@user%>">cornucopias/:id</a>&nbsp show one</li>
+      <li><a href="/cornucopias/<%=@user%>">cornucopias/:id/delete</a>&nbsp destroy cornucopia</li>
+    </ul>
+
+    <h3>Items Controller</h3>
+      <ul>
+        <li><a href="/items">items</a>&nbsp show all items</li>
+        <li><a href="/items/new">items/new</a>&nbsp create item</li>
+        <li><a href="/items/1/edit">items/:id/edit</a>&nbsp update</li>
+        <li><a href="/items/1">items/:id</a>&nbsp show one item</li>
+      </ul>
+
+    <h3>Users Controller</h3>
+      <ul>
+        <li><a href="/users/1">users/:id</a>&nbsp show one user</li>
+        <li><a href="/signup">signup</a>&nbsp sign up</li>
+        <li><a href="/login">login</a>&nbsp log in</li>
+        <li><a href="logout">logout</a>&nbsp log out</li>
+        <li><a href="/items/1">items/:id/delete</a>&nbsp destroy item</li>
+      </ul>
+      <br>
+    </div>
+</div>
+
+<div class="sidebar">
+  <h3>Environment</h3>
+  <ul>
+    <li><b>Ruby:</b> <%= RUBY_VERSION %></li>
+    <li><b>Environment:</b> <%= ENV["RACK_ENV"] %></li>
+    <li><b>Server:</b> <%= @env["SERVER_SOFTWARE"] %></li>
+    <li><b>Port:</b> <%= @env["SERVER_PORT"] %></li>
+  </ul>
+</div>
+
+</div>
