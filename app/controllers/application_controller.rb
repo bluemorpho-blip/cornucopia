@@ -13,13 +13,19 @@ class ApplicationController < Sinatra::Base
     if !logged_in?
       erb :welcome
     else
+      @user = current_user.user.id
       erb :index
     end
   end
 
+  
   get '/index' do
-    @user = current_user.user.id
-    erb :index
+    if !logged_in?
+      erb :welcome
+    else
+      @user = current_user.user.id
+      erb :index
+    end
   end
 
   helpers do
