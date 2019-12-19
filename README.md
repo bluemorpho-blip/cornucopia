@@ -38,5 +38,10 @@ To use this app, just clone, run `rake db:migrate` and then run `shotgun`.
   added solid background in some needed places.  Made the crud links on the welcome page - initially  
   there for reference - working links one a user has logged in by creating a copy "/index" page.
 #### 12/18/2019
-  kept it dry today. well, made it dry...the get '/' page and get '/index' page were the same pages (yesterday's notes) only difference was, the index page had dynamic links based on the user's id.  The '/' "Welcome" page had generic, inactive links that I had originally placed there as reference points, later placeholders.  Today, I made the Apllication Controller check if a user is logged in, then utilized the erb portion of this project to dynamically render the links for the logged in user. keeping it dry!
-  I also added flash messages throughout the site for posts, updates and deletions, because it is new to me.
+  kept it dry today. well, made it dry...the get '/' page and get '/index' page were the same pages  
+  (yesterday's   notes) only difference was, the index page had dynamic links based on the user's id.  
+  The '/' "Welcome" page had generic, inactive links that I had originally placed there as reference  
+  points, later placeholders.  Today, I made the Apllication Controller check if a user is logged in,  
+  then utilized the erb portion of this project to dynamically render the links for the logged in user.  
+  keeping it dry! I also added flash messages throughout the site for posts, updates and deletions,  
+  because it is new to me.
