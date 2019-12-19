@@ -4,6 +4,6 @@
   <% end %>
 
   <h3><%= @item.name %></h3>
-  <h4>*This belongs to the <u><ahref="/cornucopias/<%=@item.cornucopia.id%>"><%= @item.cornucopia.name %></a></u> cornucopia</h4>
+  <h4>*This is stuffed in <u><ahref="/cornucopias/<%=@item.cornucopia.id%>"><%= @item.cornucopia.name %></a></u> cornucopia</h4>
   <a href="?items/<%=@item.id%>/edit">Edit Item</a>
 </div>
