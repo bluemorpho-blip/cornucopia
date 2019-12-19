@@ -13,7 +13,6 @@ gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 gem 'rack-flash3'
-gem 'puma'
 
 group :test do
   gem 'rspec'
