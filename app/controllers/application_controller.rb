@@ -10,20 +10,20 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    if !logged_in?
-      erb :welcome
+    if logged_in?
+      @user = current_user.id
     else
-      @user = current_user.user.id
-      erb :index
+      @user = 0
     end
+      erb :welcome
   end
 
-  
+
   get '/index' do
     if !logged_in?
       erb :welcome
     else
-      @user = current_user.user.id
+      @user = current_user.id
       erb :index
     end
   end
