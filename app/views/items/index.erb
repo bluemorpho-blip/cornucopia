@@ -1,10 +1,12 @@
-<h3>All of <%= current_user.username%>'s Items:</h3>
+<div class="crud">
+  <h3>All of <%= current_user.username%>'s Items:</h3>
 
-<% current_user.items.each do |item| %>
-  <%= item.name %><br />
-  <a href="/items/<%=item.id%>/edit">Edit Item</a>
-<br />
-<br />
-<% end %>
+  <% current_user.items.each do |item| %>
+    <%= item.name %><br />
+    <a href="/items/<%=item.id%>/edit">Edit Item</a>
+  <br />
+  <br />
+  <% end %>
 
-<a href="/items/new">stuff something new into the cornucopia!</a>
+  <a href="/items/new">stuff something new into the cornucopia!</a>
+</div>

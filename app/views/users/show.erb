@@ -2,16 +2,16 @@
   <%= flash[:message] %>
 <% end %>
 
-<h3> Here are your Cornucopias, <%= current_user.username %></h3>
-
 <div class="crud">
-  <% current_user.cornucopias.each do |cornucopia| %>
-    <ul>
-      <li><h4>Cornucopia: &nbsp<a href="/cornucopias/<%=cornucopia.id %>"><%= cornucopia.name %></a></h4></li>
-      <a href="/cornucopias/<%=cornucopia.id%>/edit">Edit Cornucopia</a> |&nbsp;<a href="/items/new">Add Item</a>
-    </ul>
-    <br />
+  <h3> Here are your Cornucopias, <%= current_user.username %></h3>
 
-  <% end %>
+    <% current_user.cornucopias.each do |cornucopia| %>
+      <ul>
+        <li><h4>Cornucopia: &nbsp<a href="/cornucopias/<%=cornucopia.id %>"><%= cornucopia.name %></a></h4></li>
+        <a href="/cornucopias/<%=cornucopia.id%>/edit">Edit Cornucopia</a> |&nbsp;<a href="/items/new">Add Item</a>
+      </ul>
+      <br />
+
+    <% end %>
 
 </div>

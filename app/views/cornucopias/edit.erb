@@ -1,18 +1,20 @@
-<h3>Edit "<%= @cornucopia.name %>" cornucopia</h3>
+<div class="crud">
+  <h3>Edit "<%= @cornucopia.name %>" cornucopia</h3>
 
-<form action="/cornucopias/<%=@cornucopia.id %>" method="POST">
-  <Label> Cornucopia Name: </label>
-  <input type="text" name="name" value="<%=@cornucopia.name %>">
+  <form action="/cornucopias/<%=@cornucopia.id %>" method="POST">
+    <Label> Cornucopia Name: </label>
+    <input type="text" name="name" value="<%=@cornucopia.name %>">
+
+    <br />
+
+    <input class="btn btn-primary" type="submit" value="Update">
+
+  </form>
 
   <br />
 
-  <input class="btn btn-primary" type="submit" value="Update">
-
-</form>
-
-<br />
-
-<form method="POST" action="/cornucopias/<%=@cornucopia.id %>">
-  <input id="hidden" type="hidden" name="_method" value="delete">
-  <input class="btn btn-primary" type="submit" Value="Delete">
-</form>
+  <form method="POST" action="/cornucopias/<%=@cornucopia.id %>">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input class="btn btn-primary" type="submit" Value="Delete">
+  </form>
+</div>

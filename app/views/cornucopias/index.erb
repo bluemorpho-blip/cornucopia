@@ -5,23 +5,24 @@
 <h2>Hello, <%= current_user.username %>!</h2>
 
 <br />
+<div class="crud">
+  <div class="navi">
+    <ul>
+      <li><a href="/cornucopias/new">Create a New Cornucopia</a></li>
+    </ul>
+  </div>
+  <br>
+  <br>
 
-<div class="navi">
-  <ul>
-    <li><a href="/cornucopias/new">Create a New Cornucopia</a></li>
-  </ul>
+  <h3>Here are all the cornucopias:</h3>
+
+  <% @cornucopias.each do |cornucopia| %>
+    <ul>
+      <li><h4><a href="/cornucopias/<%=cornucopia.id%>"><%= cornucopia.name %></a></h4></li>
+      <a href="/cornucopias/<%=cornucopia.id%>/edit">Edit Cornucopia</a> |&nbsp;<a href="/items/new">Add Item</a>
+
+      <br><br>
+
+    </ul>
+    <% end %>
 </div>
-<br>
-<br>
-
-<h3>Here are all the cornucopias:</h3>
-
-<% @cornucopias.each do |cornucopia| %>
-  <ul>
-    <li><h4><a href="/cornucopias/<%=cornucopia.id%>"><%= cornucopia.name %></a></h4></li>
-    <a href="/cornucopias/<%=cornucopia.id%>/edit">Edit Cornucopia</a> |&nbsp;<a href="/items/new">Add Item</a>
-
-    <br><br>
-
-  </ul>
-  <% end %>

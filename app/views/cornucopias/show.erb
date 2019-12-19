@@ -1,8 +1,9 @@
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
+<div class="crud">
+  <% if flash.has?(:message) %>
+    <%= flash[:message] %>
+  <% end %>
 
-<h3><%= @cornucopia.name %></h3>
+  <h3><%= @cornucopia.name %></h3>
 
   <h4>Items:</h4>
   <% @cornucopia.items.each do |item| %>
@@ -13,3 +14,4 @@
 
   <a href="/cornucopias/<%=@cornucopia.id%>/edit">Edit Cornucopia</a> |
   <a href="/items/new">Add Item</a>
+</div>

@@ -1,7 +1,9 @@
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
+<div class="crud">
+  <% if flash.has?(:message) %>
+    <%= flash[:message] %>
+  <% end %>
 
-<h3><%= @item.name %></h3>
-<h4>*This belongs to the <u><ahref="/cornucopias/<%=@item.cornucopia.id%>"><%= @item.cornucopia.name %></a></u> cornucopia</h4>
-<a href="?items/<%=@item.id%>/edit">Edit Item</a>
+  <h3><%= @item.name %></h3>
+  <h4>*This belongs to the <u><ahref="/cornucopias/<%=@item.cornucopia.id%>"><%= @item.cornucopia.name %></a></u> cornucopia</h4>
+  <a href="?items/<%=@item.id%>/edit">Edit Item</a>
+</div>

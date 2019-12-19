@@ -1,23 +1,25 @@
-<h3>Edit <%= @item.name %></h3>
+<div class="crud">
+  <h3>Edit <%= @item.name %></h3>
 
-<form action="/items/<%=@item.id %>" method="POST">
-  <label> Item: </label>
-  <input type="text" name="name" value="<%=@item.name %>"> </br>
+  <form action="/items/<%=@item.id %>" method="POST">
+    <label> Item: </label>
+    <input type="text" name="name" value="<%=@item.name %>"> </br>
 
-  <label> Where should this item go? </label>
-  <select name="cornucopia_id">
-    <% current_user.cornucopias.each do |cornucopia| %>
-      <option value=<%=cornucopia.id %> <%= "selected" if cornucopia.id == @item.cornucopia.id %> ><%= cornucopia.name %></option>
-    <% end %>
-  </select>
+    <label> Where should this item go? </label>
+    <select name="cornucopia_id">
+      <% current_user.cornucopias.each do |cornucopia| %>
+        <option value=<%=cornucopia.id %> <%= "selected" if cornucopia.id == @item.cornucopia.id %> ><%= cornucopia.name %></option>
+      <% end %>
+    </select>
 
-</br>
+  </br>
 
-  <input class="btn btn-primary" type="submit" value="Update">
-</form>
+    <input class="btn btn-primary" type="submit" value="Update">
+  </form>
 
-<br />
+  <br />
 
-<form method="post" action="/items/<%=@item.id%>">
-  <input class="btn btn-primary" type="submit" value="Delete">
-</form>
+  <form method="post" action="/items/<%=@item.id%>">
+    <input class="btn btn-primary" type="submit" value="Delete">
+  </form>
+</div>
