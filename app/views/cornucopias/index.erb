@@ -15,14 +15,19 @@
   <br>
 
   <h3>Here are all the cornucopias:</h3>
+  <br>
 
   <% @cornucopias.each do |cornucopia| %>
     <ul>
-      <li><h4><a href="/cornucopias/<%=cornucopia.id%>"><%= cornucopia.name %></a></h4></li>
-      <a href="/cornucopias/<%=cornucopia.id%>/edit">Edit Cornucopia</a> |&nbsp;<a href="/items/new">Add Item</a>
-
-      <br><br>
-
+      <div class="navi">
+        <li><h4><a href="/cornucopias/<%=cornucopia.id%>"><%= cornucopia.name %></a></h4></li><br />
+        user id: &nbsp <%= cornucopia.user.username %><br />
+        <% if cornucopia.user.id == current_user.id %><br />
+        <em>this one belongs to you!</em><br />
+        <p>(that means you can mess with it.)</p>
+          edit &nbsp <a href="/cornucopias/<%=cornucopia.id%>/edit"><%= cornucopia.name %></a> |&nbsp;<a href="/items/new">stuff something in <%= cornucopia.name %></a>
+        <% end %>
     </ul>
     <% end %>
+  </div>
 </div>
