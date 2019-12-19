@@ -1,5 +1,8 @@
+require 'rack-flash'
+
 class CornucopiasController < ApplicationController
 
+use Rack::Flash
   # cornucopias index
   get '/cornucopias' do
     redirect_if_not_logged_in
