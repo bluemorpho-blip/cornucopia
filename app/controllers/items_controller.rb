@@ -29,6 +29,7 @@ class ItemsController < ApplicationController
       redirect "/items/#{@item.id}/edit?error=invalid item"
     end
     @item.update(params.select{ |k| k == "name"} )
+    flash[:message] = "Successfully updated item."
     redirect "/items/#{@item.id}"
   end
 
@@ -45,6 +46,7 @@ class ItemsController < ApplicationController
         redirect "/items/new?error=invalid item"
     end
     Item.create(params)
+    flash[:message] = "Successfully created new item."
     redirect "/items"
   end
 

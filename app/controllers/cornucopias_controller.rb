@@ -31,6 +31,7 @@ class CornucopiasController < ApplicationController
       redirect "/cornucopias/#{@cornucopia.id}/edit?error=invalid cornucopia"
     end
     @cornucopia.update(params.select{ |k| k =="name"} )
+    flash[:message] = "Successfully updated cornucopia."
     redirect "/cornucopias/#{@cornucopia.id}"
   end
 
@@ -52,6 +53,7 @@ class CornucopiasController < ApplicationController
       redirect "/cornucopias/new?error=invalid cornucopia"
     end
     current_user.cornucopias.create(params)
+    flash[:message] = "Successfully created cornucopia."
     redirect '/cornucopias'
   end
 
@@ -64,6 +66,7 @@ class CornucopiasController < ApplicationController
   delete '/cornucopias/:id' do
     @cornucpoia = Cornucopia.find_by_id(params[:id])
     @cornucpoia.destroy
+    flash[:message] = "Successfully deleted cornucopia."
     redirect '/cornucopias'
   end
 

@@ -1,4 +1,9 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <h2>Hello, <%= current_user.username %>!</h2>
+
 <br />
 
 <div class="navi">

@@ -1,4 +1,9 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <h3><%= @cornucopia.name %></h3>
+
   <h4>Items:</h4>
   <% @cornucopia.items.each do |item| %>
     <ul>

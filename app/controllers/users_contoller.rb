@@ -27,6 +27,7 @@ class UsersController < ApplicationController
     else
       @user = User.create(:username => params[:username], :password => params[:password])
       session[:user_id] = @user.id
+      flash[:message] = "Successfully created new account."
       redirect '/cornucopias'
     end
   end
