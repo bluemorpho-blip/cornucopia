@@ -21,7 +21,7 @@
     <ul>
       <div class="navi">
         <li><h4><a href="/cornucopias/<%=cornucopia.id%>"><%= cornucopia.name %></a></h4></li><br />
-        user id: &nbsp <%= cornucopia.user.username %><br />
+        belongs to: &nbsp <%= cornucopia.user.username %><br />
         <% if cornucopia.user.id == current_user.id %><br />
         <em>this one belongs to you!</em><br />
         <p>(that means you can mess with it.)</p>
