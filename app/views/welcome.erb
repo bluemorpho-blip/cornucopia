@@ -19,15 +19,14 @@
               <li>show all items</li>
               <li>create item</li>
               <li>update</li>
+              <li>destroy item</li>
             </ul>
 
           <h3>Users</h3>
             <ul>
-              <li>show one user</li>
               <li>sign up</li>
               <li>log in</li>
               <li>log out</li>
-              <li>destroy item</li>
             </ul>
             <br />
         <% else %>
@@ -50,15 +49,14 @@
                 <li><a href="/items">show all items</a></li>
                 <li><a href="/items/new">create item</a></li>
                 <li><a href="/items/<%=@user%>/edit">update</a></li>
+                <li><a href="/items/<%=@user%>/edit">destroy item</a></li>
               </ul>
 
             <h3>Users</h3>
               <ul>
-                <li><a href="/users/<%=@user%>">show one user</a></li>
                 <li><a href="/signup">sign up</a></li>
                 <li><a href="/login">log in</a></li>
                 <li><a href="logout">log out</a></li>
-                <li><a href="/items/<%=@user%>/edit">destroy item</a></li>
               </ul>
               <br>
         <% end %>
