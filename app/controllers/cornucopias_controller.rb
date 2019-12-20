@@ -42,7 +42,7 @@ use Rack::Flash
   get "/cornucopias/:id" do
     redirect_if_not_logged_in
     @cornucopia = Cornucopia.find(params[:id])
-    if @cornucopia.user != current_user
+    if @cornucopia.user.id != current_user.id
       redirect "/cornucopias/new?error=this cornucopia does not belong to you!!"
     else
       erb :'cornucopias/show'
