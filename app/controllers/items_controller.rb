@@ -1,4 +1,8 @@
+require 'rack-flash'
+
 class ItemsController < ApplicationController
+
+  use Rack::Flash
 
   get '/items' do
     redirect_if_not_logged_in
@@ -29,7 +33,7 @@ class ItemsController < ApplicationController
       redirect "/items/#{@item.id}/edit?error=invalid item"
     end
     @item.update(params.select{ |k| k == "name"} )
-    flash[:message] = "Successfully updated item."
+    flash[:message] = "Successfully added #{@item.name}."
     redirect "/items/#{@item.id}"
   end
 
@@ -46,7 +50,7 @@ class ItemsController < ApplicationController
         redirect "/items/new?error=invalid item"
     end
     Item.create(params)
-    flash[:message] = "Successfully created new item."
+    flash[:message] = "#{params[:name]} stuffed in the cornucopia!"
     redirect "/items"
   end
 
@@ -59,6 +63,7 @@ class ItemsController < ApplicationController
   delete '/items/:id' do
     @item = Item.find_by_id(params[:id])
     @item.destroy
+    flash[:message] = "Successfully deleted #{@item.name}"
     redirect to '/items'
   end
 

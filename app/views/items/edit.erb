@@ -19,7 +19,8 @@
 
   <br />
 
-  <form method="post" action="/items/<%=@item.id%>">
-    <input class="btn btn-primary" type="submit" value="Delete Item">
+  <form method="POST" action="/items/<%=@item.id %>">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input class="btn btn-primary" type="submit" Value="Delete <%= @item.name %>">
   </form>
 </div>

@@ -1,7 +1,8 @@
-<div class="crud">
-  <% if flash.has?(:message) %>
-    <%= flash[:message] %>
-  <% end %>
+  <div class="crud">
+
+    <% if flash.has?(:message) %>
+      <%= flash[:message] %>
+    <% end %>
 
   <h3><%= @cornucopia.name %></h3>
 
@@ -11,7 +12,7 @@
       <li><h5><a href="/items/<%=item.id%>"><%= item.name %></a></h5></li>
     </ul>
   <% end %>
-
+  <br />
   <a href="/cornucopias/<%=@cornucopia.id%>/edit">Edit Cornucopia</a> |
   <a href="/items/new">Add Item</a>
 </div>

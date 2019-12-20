@@ -1,11 +1,10 @@
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
-
 <h2>Hello, <%= current_user.username %>!</h2>
 
 <br />
 <div class="crud">
+  <% if flash.has?(:message) %>
+    <%= flash[:message] %>
+  <% end %>
   <div class="navi">
     <ul>
       <li><a href="/cornucopias/new">Create a New Cornucopia</a></li>

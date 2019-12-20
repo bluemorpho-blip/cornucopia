@@ -1,8 +1,9 @@
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
-
 <div class="crud">
+
+  <% if flash.has?(:message) %>
+    <%= flash[:message] %>
+  <% end %>
+
   <h3> Here are your Cornucopias, <%= current_user.username %></h3>
 
     <% current_user.cornucopias.each do |cornucopia| %>
