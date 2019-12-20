@@ -41,12 +41,14 @@ To use this app, just clone, run `rake db:migrate` and then run `shotgun`.
   kept it dry today. well, made it dry...the get '/' page and get '/index' page were the same pages  
   (yesterday's   notes) only difference was, the index page had dynamic links based on the user's id.  
   The '/' "Welcome" page had generic, inactive links that I had originally placed there as reference  
-  points, later placeholders.  Today, I made the Apllication Controller check if a user is logged in,  
+  points, later placeholders.  Today, I made the Aplication Controller check if a user is logged in,  
   then utilized the erb portion of this project to dynamically render the links for the logged in user.  
   keeping it dry! I also added flash messages throughout the site for posts, updates and deletions,  
   because it is new to me.
 #### 12/19/2019
   created the blog: `https://bluemorpho.cc/f/sinatra-portfolio-project` today.  Tried to test all  
   controllers today and check functionality of each.  Layout and format look good.  I will do the  
-  walkthrough video tomorrow - probably without naration since my hearing has gotten so bad, i can't  
+  walkthrough video tomorrow - probably without narration since my hearing has gotten so bad, i can't  
   hear myself speak most of the time.
+#### 12/20/2019
+  debugged lots of href errors and general link mishaps throughout in preparation for the walkthrough video.  Project assessment scheduled for Jan 1, 2020 at 2:15pm.
