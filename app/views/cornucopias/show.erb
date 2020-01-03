@@ -13,6 +13,8 @@
     </ul>
   <% end %>
   <br />
-  <a href="/cornucopias/<%=@cornucopia.id%>/edit">Edit Cornucopia</a> |
-  <a href="/items/new">Add Item</a>
+  <% if @user.id == @cornucopia.user_id %>
+      <a href="/cornucopias/<%=@cornucopia.id%>/edit">Edit Cornucopia</a> |
+      <a href="/items/new">Add Item</a>
+  <% end %>
 </div>

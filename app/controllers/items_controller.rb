@@ -41,6 +41,7 @@ class ItemsController < ApplicationController
   get '/items/:id' do
     redirect_if_not_logged_in
     @item = Item.find_by_id(params[:id])
+    @cornucopia = @item.cornucopia
     erb :'/items/show'
   end
 
